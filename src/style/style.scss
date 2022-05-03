@@ -1,0 +1,150 @@
+@import url(reset.css);
+
+//색상
+$bg-color: #F2F2F2;
+$border-color: #BDBDBD;
+
+//폰트
+$tit-font: 'Roboto', sans-serif;
+$base-font: 'Noto Sans KR', sans-serif;
+
+//mixin
+@mixin movie-dtdd {
+    display: inline-block;
+    font-family: $base-font;
+    font-size: 13px;
+    line-height: 1.38;
+}
+
+.cont-cinema {
+    margin: 91px auto 135px auto;
+    width: 1060px;
+    background-color: $bg-color;
+    border: 2px solid $border-color;
+    border-radius: 10px;
+
+    .tit-cinema {
+        display: inline-block;
+        padding: 41px 408px 37px 408px;
+        text-align: center;
+        font-family: $tit-font;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 1.16;
+    }
+
+    .border-cinema {
+        content: '';
+        width: 650px;
+        margin: 0 auto;
+        border: 1px solid $border-color;
+    }
+
+    .list-cinema-nav {
+        display: flex;
+        justify-content: center;
+        padding: 28px 0 28px 0;
+
+        li {
+            font-family: $tit-font;
+            font-size: 16px;
+            line-height: 1.13;
+            letter-spacing: -0.7px;
+
+        }
+
+        li:nth-child(1) {
+            margin-right: 60px;
+        }
+
+        li:nth-child(2) {
+            margin-right: 60px;
+            color: #828282;
+        }
+
+        li:nth-child(3) {
+            color: #828282;
+        }
+
+        .selected {
+            font-weight: 900;
+        }
+    }
+}
+
+.list-movie {
+    display: grid;
+    margin: 0 auto 31px auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    width: 1003px;
+    padding: 26px 0 30px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid $border-color;
+
+    .card-movie {
+        width: 220px;
+        background-color: #fff;
+        border-radius: 10px;
+        border: 2px solid $border-color;
+
+        .img-movie {
+            width: 180px;
+            display: block;
+            margin: 0 auto;
+            height: 250px;
+            border: 1px solid #BDBDBD;
+            box-sizing: border-box;
+            border-radius: 10px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+    
+        .tit-movie {
+            width: 172px;
+            margin: 0 auto;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: $base-font;
+            font-weight: 900;
+            font-size: 16px;
+            line-height: 1.44;
+        }
+
+        .cont-desc {
+            padding: 11px 18px 18px 20px;
+        }
+
+        dl {
+            display: inline-block;
+
+            .star::before {
+                content: url(../images/별점이미지.png);
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+        dl:nth-child(1) {
+            margin-right: 42px;
+        }
+
+        dl:nth-child(odd) {
+            margin-bottom: 5px
+        }
+
+        .cate-movie {
+            @include movie-dtdd;
+            color: #828282;
+        }
+
+        .info-movie {
+            @include movie-dtdd;
+
+        }
+    }
+
+
+}
+
