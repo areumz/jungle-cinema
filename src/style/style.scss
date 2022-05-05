@@ -16,6 +16,22 @@ $base-font: 'Noto Sans KR', sans-serif;
     line-height: 1.38;
 }
 
+@mixin link-btn {
+    display: inline-block;
+    font-family: $base-font;
+    font-size: 14px;
+    color: #000;
+    line-height: 1.42;
+    text-decoration: none;
+    background-color: $bg-color;
+    border-top: 2px solid $border-color;
+}
+
+html, body {
+    min-width: 100%;
+    min-height: 100vh;
+}
+
 .cont-cinema {
     margin: 91px auto 135px auto;
     width: 1060px;
@@ -34,7 +50,6 @@ $base-font: 'Noto Sans KR', sans-serif;
     }
 
     .border-cinema {
-        content: '';
         width: 650px;
         margin: 0 auto;
         border: 1px solid $border-color;
@@ -92,7 +107,7 @@ $base-font: 'Noto Sans KR', sans-serif;
         .img-movie {
             width: 180px;
             display: block;
-            margin: 0 auto;
+            margin: 19px auto 0 auto;
             height: 250px;
             border: 1px solid #BDBDBD;
             box-sizing: border-box;
@@ -102,7 +117,7 @@ $base-font: 'Noto Sans KR', sans-serif;
     
         .tit-movie {
             width: 172px;
-            margin: 0 auto;
+            margin: 11px auto 5px auto ;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -113,38 +128,263 @@ $base-font: 'Noto Sans KR', sans-serif;
         }
 
         .cont-desc {
+            position: relative;
             padding: 11px 18px 18px 20px;
-        }
 
-        dl {
-            display: inline-block;
-
-            .star::before {
-                content: url(../images/별점이미지.png);
+            dl {
                 display: inline-block;
-                vertical-align: middle;
+    
+                .star {
+                    padding-left: 8px;
+                }
+    
+                .star::before {
+                    content: '';
+                    display: inline-block;
+                    background-image: url(../images/별점이미지.png);
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    width: 14px;
+                    height: 14px;
+                    position: absolute;
+                    top: 13px;
+                    right: 49px;
+                }
+
+                .cate-movie {
+                    @include movie-dtdd;
+                    color: #828282;
+                }
+        
+                .info-movie {
+                    @include movie-dtdd;    
+                }
+            }
+
+            dl:nth-child(1) {
+                margin-right: 42px;
+            }
+
+            dl:nth-child(1).fantasy {
+                margin-right: 18px;
+            }
+    
+            dl:nth-child(odd) {
+                margin-bottom: 5px;
             }
         }
 
-        dl:nth-child(1) {
-            margin-right: 42px;
+        .link-ticket {
+            @include link-btn;
+            border-bottom-left-radius: 10px;
+            border-right: 2px solid $border-color;
+            padding: 9px 28px 12px 27px;
         }
 
-        dl:nth-child(odd) {
-            margin-bottom: 5px
+        .link-preview {
+            @include link-btn;
+            border-bottom-right-radius: 10px;
+            padding: 9px 32px 12px 40px;
+            position: relative;
         }
 
-        .cate-movie {
-            @include movie-dtdd;
-            color: #828282;
+        .link-preview::before {
+            content: '';
+            background-image: url(../images/아이콘_재생.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            display: inline-block;
+            position: absolute;
+            top: 12px;
+            left: 25px;
+            width: 13px;
+            height: 13px;
+        }
+    }
+    .card-movie:nth-child(1) {
+        margin-bottom: 24px;
+    }
+
+    .card-movie:nth-child(2) {
+        margin-bottom: 24px;
+    }
+
+    .card-movie:nth-child(3) {
+        margin-bottom: 24px;
+    }
+
+    .card-movie:nth-child(4) {
+        margin-bottom: 24px;
+    }
+
+}
+
+.cont-footer {
+    width: 1080px;
+    min-width: 100%;
+    background-color: $bg-color;
+
+    .border-footer {
+        width: 100%;
+        max-width: 1189px;
+        height: 0;
+        margin:0 auto;
+        border: 0.5px solid #C4C4C4;
+    }
+
+    .box-sns {
+        width: 1189px;
+        margin-left: 80px;
+        display: inline-block;
+
+        h2 {
+            display: block;
+            width: 217px;
+            padding: 53px 0 42px 0;
+            float: left;
+            font-family: $tit-font;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.14;
         }
 
-        .info-movie {
-            @include movie-dtdd;
+        h2::before {
+            clear: both;
+        }
 
+        h2::after {
+            clear: both;
+        }
+
+        .list-sns {
+            display: block;
+            padding: 53px 0 42px 0;
+            float: right;
+            width: 120px;
+            height: 25px;
+    
+            .item-twitter {
+                background-image: url(../images/twitter.png);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                display: inline-block;
+                width: 22px;
+                height: 18px;
+            }
+        
+            .item-insta {
+                background-image: url(../images/instagram.png);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                display: inline-block;
+                width: 22px;
+                height: 20px;
+                margin-left: 40px;
+            }
+        
+            .item-facebook {
+                background-image: url(../images/facebook.png);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin-left: 80px;
+            }
+            
+            a {
+                display: block;
+                height: 100%;
+            }
+        }
+
+        .list-sns::before {
+            clear: both;
+        }
+
+        .list-sns::after {
+            clear: both;
         }
     }
 
+    .desc-company {
+        display: inline-block;
+        width: 1189px;
+        margin-left: 80px;
+
+        div:nth-child(1) {
+            display: flex;
+            float: left;
+            padding: 36px 0 38px 0;
+        }
+
+        div:nth-child(2) {
+            float: right;
+            padding: 36px 0 38px 0;
+        }
+
+        dl {
+            display: flex;
+            font-family: $base-font;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #4F4F4F;
+    
+            dt {
+                font-weight: 700;
+            }
+    
+            .name-company {
+                font-weight: 700;
+            }
+        }
+
+        dl:nth-child(even)::before {
+            content: '';
+            width: 0px;
+            height: 18px;
+            border-right: 1px solid #4F4F4F;
+            padding-left: 10px;
+        }
+
+        dl:nth-child(even)::after {
+            content: '';
+            width: 0px;
+            height: 18px;
+            border-right: 1px solid #4F4F4F;
+            padding-left: 10px;
+        }
+
+        dl:nth-child(2) {
+            dt {
+                padding: 0 8px 0 8px;
+            }
+        }
+
+        dl:nth-child(3) {
+            dt {
+                padding: 0 8px 0 8px;
+            }
+        }
+
+        dl:nth-child(4) {
+            dd {
+                padding-left: 8px;
+            }
+        }
+
+        dl:nth-child(5) {
+            dt {
+                padding: 0 8px 0 8px;
+            }
+        }
+
+        span {
+            color: #4F4F4F;
+            font-weight: 700;
+        }
+    }
 
 }
+
 
